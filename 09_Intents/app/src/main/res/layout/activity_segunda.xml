@@ -12,8 +12,7 @@
         android:text="Texto 1"
         android:gravity="center_horizontal"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#fff"/>
+        android:textStyle="bold"/>
     <TextView
         android:id="@+id/tvTextoDos"
         android:layout_width="match_parent"
@@ -21,7 +20,6 @@
         android:text="Texto 2"
         android:gravity="center_horizontal"
         android:textSize="20sp"
-        android:textColor="#fff"
         android:layout_marginTop="20dp"/>
 
     <LinearLayout
