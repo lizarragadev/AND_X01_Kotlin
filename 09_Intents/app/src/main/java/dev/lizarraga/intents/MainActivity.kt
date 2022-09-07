@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("valor3", "Mi apellido es ")
         startActivityForResult(intent, FORM_RESULT)
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == FORM_RESULT) {
