@@ -1,15 +1,10 @@
 package dev.lizarraga.notificaciones
 
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.media.RingtoneManager
-import android.net.Uri
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
@@ -50,19 +45,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun createSimpleNotification(context: Context) {
 
-
-
-    }
-
-    fun playNotificationSound() {
-        try {
-            //val alarmaSonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val alarmaSonido = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + applicationContext.packageName + "/"+ R.raw.iphone_notificacion)
-            val r = RingtoneManager.getRingtone(applicationContext, alarmaSonido)
-            r.play()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 
     private fun createExpandableNotification(context: Context) {
@@ -71,8 +53,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         notificacion.setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_android))
         notificacion.setContentTitle("Expandible")
         notificacion.setContentText("Aca colocamos en contenido de la notificacion")
-
-        val lorem = context.resources.getString(R.string.long_lorem)
 
 
 
@@ -101,6 +81,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     }
-
 
 }
