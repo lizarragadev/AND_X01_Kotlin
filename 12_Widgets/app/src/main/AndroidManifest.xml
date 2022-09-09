@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="dev.lizarraga.widgets">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.12_Widgets"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.WidgetsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.VideoViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PickersActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -8,16 +8,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Button
-        android:id="@+id/btnProgressBar"
+        android:id="@+id/btnWidgets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ProgressBar"
-        android:layout_marginBottom="10dp"/>
-    <Button
-        android:id="@+id/btnSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SeekBar"
+        android:text="Widgets"
         android:layout_marginBottom="10dp"/>
     <Button
         android:id="@+id/btnPickers"
@@ -26,34 +20,16 @@
         android:text="Pickers"
         android:layout_marginBottom="10dp"/>
     <Button
-        android:id="@+id/btnCalendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CalendarView"
-        android:layout_marginBottom="10dp"/>
-    <Button
         android:id="@+id/btnWebView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WebView"
         android:layout_marginBottom="10dp"/>
     <Button
-        android:id="@+id/btnRatingBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RatingBar"
-        android:layout_marginBottom="10dp"/>
-    <Button
         android:id="@+id/btnVideoView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="VideoView"
-        android:layout_marginBottom="10dp"/>
-    <Button
-        android:id="@+id/btnTextureView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextureView"
         android:layout_marginBottom="10dp"/>
 
 </LinearLayout>
