@@ -18,13 +18,28 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.ibIr.setOnClickListener {
-
+            irPaginaWeb(binding.etURL.text.toString())
+            hideSoftKeyboard()
+        }
+        binding.etURL.setOnEditorActionListener { textView, i, keyEvent ->
+            return@setOnEditorActionListener when(i) {
+                EditorInfo.IME_ACTION_GO -> {
+                    irPaginaWeb(binding.etURL.text.toString())
+                    hideSoftKeyboard()
+                    true
+                }
+                else -> false
+            }
         }
 
     }
 
     fun irPaginaWeb(url: String) {
-
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.builtInZoomControls = true
+        //binding.webView.setInitialScale(100)
+        binding.webView.loadUrl("https://$url")
     }
 
     fun hideSoftKeyboard() {

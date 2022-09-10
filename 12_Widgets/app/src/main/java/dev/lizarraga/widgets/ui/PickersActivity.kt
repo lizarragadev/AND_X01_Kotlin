@@ -34,4 +34,12 @@ class PickersActivity : AppCompatActivity(), DateTimeInterface {
         dialogFragment.show(supportFragmentManager, "timePicker")
     }
 
+    override fun obtieneFecha(date: String) {
+        binding.etFecha.setText(date)
+    }
+
+    override fun obtieneHora(hora: String) {
+        binding.etHora.setText(hora)
+    }
+
 }

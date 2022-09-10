@@ -23,8 +23,15 @@ class VideoViewActivity : AppCompatActivity() {
             mediaControls?.setAnchorView(binding.videoView)
         }
 
+        binding.videoView.setMediaController(mediaControls)
+        binding.videoView.setVideoURI(Uri.parse("android.resource://"
+                + packageName + "/" + R.raw.video))
+        binding.videoView.requestFocus()
+        binding.videoView.start()
 
-
+        binding.videoView.setOnCompletionListener {
+            finish()
+        }
 
     }
 }

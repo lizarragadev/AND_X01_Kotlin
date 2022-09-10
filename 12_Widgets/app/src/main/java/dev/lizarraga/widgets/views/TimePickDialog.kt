@@ -15,8 +15,13 @@ class TimePickDialog : DialogFragment(), TimePickerDialog.OnTimeSetListener {
     var timePickerDialog: TimePickerDialog? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val c = Calendar.getInstance()
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
 
-        return null!!
+        timePickerDialog = TimePickerDialog(activity as Context, this, hour, minute, DateFormat.is24HourFormat(activity))
+
+        return timePickerDialog as TimePickerDialog
     }
 
     override fun onTimeSet(p0: TimePicker?, hora: Int, minuto: Int) {
@@ -25,7 +30,7 @@ class TimePickDialog : DialogFragment(), TimePickerDialog.OnTimeSetListener {
         val ampm = if(hora < 12) "a.m." else "p.m."
         val resultado = "$horaFormateada:$minutoFormateado $ampm"
 
-
+        (activity as DateTimeInterface).obtieneHora(resultado)
     }
 
 }

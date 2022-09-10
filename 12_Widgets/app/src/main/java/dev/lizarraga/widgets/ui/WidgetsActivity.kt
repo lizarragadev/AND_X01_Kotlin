@@ -14,7 +14,21 @@ class WidgetsActivity : AppCompatActivity() {
         binding = ActivityWidgetsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.continuousSeekbar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+            }
 
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekbar: SeekBar?) {
+                Toast.makeText(applicationContext, "${seekbar?.progress}", Toast.LENGTH_LONG).show()
+            }
+        })
+
+        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, b ->
+            Toast.makeText(this, "Valor: $rating / ${ratingBar.numStars}", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
