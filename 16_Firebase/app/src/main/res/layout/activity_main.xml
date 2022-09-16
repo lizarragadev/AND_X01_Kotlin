@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenid@"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:id="@+id/tvUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnRealtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Realtime Database"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"/>
+
+    <Button
+        android:id="@+id/btnFirestore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Firestore"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"/>
+
+</LinearLayout>
