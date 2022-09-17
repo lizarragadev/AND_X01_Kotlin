@@ -3,16 +3,11 @@ package dev.lizarraga.firebase.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FirebaseFirestore
-import dev.lizarraga.firebase.Constants
 import dev.lizarraga.firebase.R
-import dev.lizarraga.firebase.adapter.RVAdapterFirestore
 import dev.lizarraga.firebase.databinding.ActivityFirestoreBinding
 import dev.lizarraga.firebase.model.Contact
 
