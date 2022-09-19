@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">17_GoogleMaps_Geo</string>
+
+    <string-array name="coord_bol">
+        <item>-9.750976, -69.751063</item>
+        <item>-9.781599, -57.942932</item>
+        <item>-22.955286, -57.974006</item>
+        <item>-22.869419, -69.782137</item>
+        <item>-9.750976, -69.751063</item>
+    </string-array>
+
+    <string-array name="coord_around_bol">
+        <item>-10.922041, -69.628187</item>
+        <item>-9.733147, -65.255628</item>
+        <item>-11.891268, -64.948011</item>
+        <item>-13.797803, -60.399671</item>
+        <item>-16.259237, -60.157972</item>
+        <item>-16.259237, -58.290296</item>
+        <item>-18.210825, -57.477308</item>
+        <item>-19.955016, -58.004652</item>
+        <item>-19.748347, -61.674085</item>
+        <item>-22.311709, -62.574964</item>
+        <item>-23.263802, -64.310804</item>
+        <item>-22.148994, -64.794202</item>
+        <item>-22.818969, -67.782483</item>
+        <item>-17.248101, -69.650159</item>
+        <item>-12.539434, -68.686912</item>
+    </string-array>
+
+</resources>
