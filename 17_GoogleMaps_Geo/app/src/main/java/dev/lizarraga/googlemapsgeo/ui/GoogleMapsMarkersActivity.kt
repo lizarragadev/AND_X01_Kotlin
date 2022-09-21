@@ -69,9 +69,7 @@ class GoogleMapsMarkersActivity : AppCompatActivity(), OnMapReadyCallback {
             return@setOnMarkerClickListener true
         }
 
-
     }
-
 
 }
 
