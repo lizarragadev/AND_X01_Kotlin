@@ -1,9 +1,13 @@
 package dev.lizarraga.googlemapsgeo.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -69,6 +73,30 @@ class GoogleMapsMarkersActivity : AppCompatActivity(), OnMapReadyCallback {
             return@setOnMarkerClickListener true
         }
 
+        gMap.uiSettings.isZoomControlsEnabled = true
+        gMap.uiSettings.isZoomGesturesEnabled = false
+        gMap.uiSettings.isScrollGesturesEnabled = false
+        gMap.uiSettings.isRotateGesturesEnabled = false
+
+        activarUbicacion()
+    }
+
+    fun activarUbicacion() {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            gMap.isMyLocationEnabled = true
+            gMap.uiSettings.isMyLocationButtonEnabled = true
+        } else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: kotlin.Int, permissions: kotlin.Array<out kotlin.String>, grantResults: kotlin.IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == 1) {
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                activarUbicacion()
+            }
+        }
     }
 
 }
