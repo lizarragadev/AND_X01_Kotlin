@@ -40,21 +40,66 @@ class MainActivity : AppCompatActivity() {
         binding.rvNotes.layoutManager = layoutManager
         binding.rvNotes.setHasFixedSize(true)
 
+        adaptador = RVAdapter()
+        adaptador.setItemListener(object: RecyclerClickListener {
+            override fun onItemRemoveClick(position: Int) {
+                val notesList = adaptador.currentList.toMutableList()
+                val removeNote = Note(
+                    notesList[position].dateAdded as Date,
+                    notesList[position].noteTitle,
+                    notesList[position].noteText
+                )
+                lifecycleScope.launch {
+                    noteDatabase.deleteNote(removeNote)
+                }
+            }
+            override fun onItemClick(position: Int) {
+                val intent = Intent(this@MainActivity, AddNoteActivity::class.java)
+                val notesList = adaptador.currentList.toMutableList()
+                intent.putExtra("note_date_added", notesList[position].dateAdded)
+                intent.putExtra("note_title", notesList[position].noteTitle)
+                intent.putExtra("note_text", notesList[position].noteText)
+                editNoteResultLauncher.launch(intent)
+            }
 
+        })
+        binding.rvNotes.adapter = adaptador
     }
 
     private fun observeNotes() {
-
+        lifecycleScope.launch {
+            noteDatabase.getNotes().collect { notesList ->
+                if(notesList.isNotEmpty()) {
+                    adaptador.submitList(notesList)
+                }
+            }
+        }
     }
 
     private val newNoteResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-
+            if(result.resultCode == Activity.RESULT_OK) {
+                val noteDateAdded = Date()
+                val noteTitle = result.data?.getStringExtra("note_title")
+                val noteText = result.data?.getStringExtra("note_text")
+                val newNote = Note(noteDateAdded, noteTitle ?: "", noteText ?: "")
+                lifecycleScope.launch {
+                    noteDatabase.addNote(newNote)
+                }
+            }
         }
 
     val editNoteResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-
+            if(result.resultCode == Activity.RESULT_OK) {
+                val noteDateAdded = result.data?.getSerializableExtra("note_date_added") as Date
+                val noteTitle = result.data?.getStringExtra("note_title")
+                val noteText = result.data?.getStringExtra("note_text")
+                val editedNote = Note(noteDateAdded, noteTitle ?: "", noteText ?: "")
+                lifecycleScope.launch {
+                    noteDatabase.updateNote(editedNote)
+                }
+            }
         }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
