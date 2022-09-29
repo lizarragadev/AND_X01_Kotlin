@@ -7,7 +7,7 @@ import dev.lizarraga.syncsqlitemysql.R
 import dev.lizarraga.syncsqlitemysql.databinding.ItemNamesBinding
 import dev.lizarraga.syncsqlitemysql.model.Name
 
-class RVNameAdapter : RecyclerView.Adapter<RVNameAdapter.ViewHolder>() {
+class RVNameAdapter: RecyclerView.Adapter<RVNameAdapter.ViewHolder>() {
 
     private val dataset: ArrayList<Name> = ArrayList()
 
@@ -19,9 +19,15 @@ class RVNameAdapter : RecyclerView.Adapter<RVNameAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val name = dataset[position]
-
-
+        val name = dataset[position] as Name
+        with(holder) {
+            binding.textViewName.text = name.name
+            if(name.status == 0) {
+                binding.imageViewStatus.setBackgroundResource(R.drawable.ic_warning)
+            } else {
+                binding.imageViewStatus.setBackgroundResource(R.drawable.ic_done)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

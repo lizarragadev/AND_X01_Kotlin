@@ -59,7 +59,9 @@ class NetworkStateChecker : BroadcastReceiver() {
                         e.printStackTrace()
                     }
                 },
-                Response.ErrorListener { }) {
+                Response.ErrorListener {
+
+                }) {
                 override fun getParams(): MutableMap<String, String>? {
                     val params: MutableMap<String, String> = HashMap()
                     params["name"] = name

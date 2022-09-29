@@ -59,8 +59,7 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, nul
     val unsyncedNames: Cursor
         get() {
             val db = this.readableDatabase
-            val sql =
-                "SELECT * FROM $TABLE_NAME WHERE $COLUMN_STATUS = 0;"
+            val sql = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_STATUS = 0;"
             return db.rawQuery(sql, null)
         }
 
